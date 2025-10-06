@@ -3,6 +3,10 @@
 const playerZeroScoreElement = document.getElementById('score--0');
 const playerOneScoreElement = document.getElementById('score--1');
 
+// Selecting elements for current score
+const currentScorePlayerZeroElement = document.getElementById('current--0');
+const currentScorePlayerOneElement = document.getElementById('current--1');
+
 // Selecting dice image elements
 const diceImageElement = document.querySelector('.dice');
 
@@ -32,6 +36,7 @@ buttonRollDiceElement.addEventListener('click', function () {
   if (diceNumber !== 1) {
     // Add dice number to the current score
     currentScore = currentScore + diceNumber; //currentScore += diceNumber;
+    currentScorePlayerZeroElement.textContent = currentScore;
   } else {
     // Switch to next player
   }
