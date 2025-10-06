@@ -8,10 +8,31 @@ const diceImageElement = document.querySelector('.dice');
 
 // Selecting button elements
 const buttonNewGameElement = document.querySelector('.btn--new');
-const buttonRollDiceElement = document.querySelector('.btn-roll');
+const buttonRollDiceElement = document.querySelector('.btn--roll');
 const buttonHoldElement = document.querySelector('.btn--hold');
 
 // Starting conditions
 playerZeroScoreElement.textContent = 0;
 playerOneScoreElement.textContent = 0;
 diceImageElement.classList.add('hidden');
+
+// Storing the score in a variable
+let currentScore = 0;
+
+// Rolling the dice functionality
+buttonRollDiceElement.addEventListener('click', function () {
+  // 1. Generating random dice roll
+  const diceNumber = Math.trunc(Math.random() * 6) + 1;
+
+  // 2. Display the dice
+  diceImageElement.classList.remove('hidden');
+  diceImageElement.src = `images/dice-${diceNumber}.png`;
+
+  // 3. Check for rolled 1
+  if (diceNumber !== 1) {
+    // Add dice number to the current score
+    currentScore = currentScore + diceNumber; //currentScore += diceNumber;
+  } else {
+    // Switch to next player
+  }
+});
