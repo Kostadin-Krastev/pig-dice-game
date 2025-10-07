@@ -1,5 +1,9 @@
 'use strict';
-// Selecting elements players score
+// Selecting elements for the players
+const playerZeroElement = document.querySelector('.player--0');
+const playerOneElement = document.querySelector('.player--1');
+
+// Selecting elements for players score
 const playerZeroScoreElement = document.getElementById('score--0');
 const playerOneScoreElement = document.getElementById('score--1');
 
