@@ -38,11 +38,12 @@ buttonRollDiceElement.addEventListener('click', function () {
   if (diceNumber !== 1) {
     // Add dice number to the current score
     currentScore = currentScore + diceNumber; //currentScore += diceNumber;
-    const liveScore = (document.getElementById(
-      `current--${activePlayer}`
-    ).textContent = currentScore);
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
   } else {
     // Switch to next player
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
