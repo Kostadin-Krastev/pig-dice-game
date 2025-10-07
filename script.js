@@ -20,8 +20,10 @@ playerZeroScoreElement.textContent = 0;
 playerOneScoreElement.textContent = 0;
 diceImageElement.classList.add('hidden');
 
-// Storing the score in a variable
+// Storing the score
+const scores = [0, 0];
 let currentScore = 0;
+let activePlayer = 0;
 
 // Rolling the dice functionality
 buttonRollDiceElement.addEventListener('click', function () {
@@ -36,8 +38,11 @@ buttonRollDiceElement.addEventListener('click', function () {
   if (diceNumber !== 1) {
     // Add dice number to the current score
     currentScore = currentScore + diceNumber; //currentScore += diceNumber;
-    currentScorePlayerZeroElement.textContent = currentScore;
+    const liveScore = (document.getElementById(
+      `current--${activePlayer}`
+    ).textContent = currentScore);
   } else {
     // Switch to next player
+    activePlayer = activePlayer === 0 ? 1 : 0;
   }
 });
