@@ -49,5 +49,7 @@ buttonRollDiceElement.addEventListener('click', function () {
     document.getElementById(`current--${activePlayer}`).textContent = 0;
     currentScore = 0;
     activePlayer = activePlayer === 0 ? 1 : 0;
+    playerZeroElement.classList.toggle('player--active');
+    playerOneElement.classList.toggle('player--active');
   }
 });
