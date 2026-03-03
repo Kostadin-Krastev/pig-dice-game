@@ -28,6 +28,8 @@ diceImageElement.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+// variable if the game is still played or somebody won it
+let playing = true;
 
 // Switch to next player function
 const switchPlayer = function () {
