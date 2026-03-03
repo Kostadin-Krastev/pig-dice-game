@@ -74,6 +74,7 @@ buttonHoldElement.addEventListener('click', function () {
     if (scores[activePlayer] >= 20) {
       // Finish the game
       playing = false;
+      diceImageElement.classList.add('hidden');
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
