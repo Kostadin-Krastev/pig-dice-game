@@ -53,3 +53,14 @@ buttonRollDiceElement.addEventListener('click', function () {
     playerOneElement.classList.toggle('player--active');
   }
 });
+
+// Holding the score functionality when HOLD button is pressed
+buttonHoldElement.addEventListener('click', function () {
+  //1. Add current score to active player's score
+  scores[activePlayer] += currentScore;
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+  // 2. Check player's score is >= 100
+  // Finish the game
+  // Switch to the next player
+});
