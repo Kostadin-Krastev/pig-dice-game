@@ -96,6 +96,11 @@ buttonNewGameElement.addEventListener('click', function () {
   currentScore = 0;
   activePlayer = 0;
   playing = true;
+
+  // Reset the UI
+  diceImageElement.classList.add('hidden');
   playerZeroScoreElement.textContent = 0;
   playerOneScoreElement.textContent = 0;
+  currentScorePlayerZeroElement.textContent = 0;
+  currentScorePlayerOneElement.textContent = 0;
 });
