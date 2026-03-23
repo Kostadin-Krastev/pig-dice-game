@@ -103,4 +103,11 @@ buttonNewGameElement.addEventListener('click', function () {
   playerOneScoreElement.textContent = 0;
   currentScorePlayerZeroElement.textContent = 0;
   currentScorePlayerOneElement.textContent = 0;
+
+  // Reset player states
+  playerZeroElement.classList.remove('player--winner');
+  playerOneElement.classList.remove('player--winner');
+
+  playerZeroElement.classList.add('player--active');
+  playerOneElement.classList.remove('player--active');
 });
