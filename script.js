@@ -19,17 +19,32 @@ const buttonNewGameElement = document.querySelector('.btn--new');
 const buttonRollDiceElement = document.querySelector('.btn--roll');
 const buttonHoldElement = document.querySelector('.btn--hold');
 
-// Starting conditions
-playerZeroScoreElement.textContent = 0;
-playerOneScoreElement.textContent = 0;
-diceImageElement.classList.add('hidden');
+let scores, currentScore, activePlayer, playing;
 
-// Storing the score
-const scores = [0, 0];
-let currentScore = 0;
-let activePlayer = 0;
-// variable if the game is still played or somebody won it
-let playing = true;
+// Starting conditions
+const init = function () {
+  // Storing the score
+  scores = [0, 0];
+  currentScore = 0;
+  activePlayer = 0;
+  // variable if the game is still played or somebody won it
+  playing = true;
+
+  // UI elements
+  playerZeroScoreElement.textContent = 0;
+  playerOneScoreElement.textContent = 0;
+  diceImageElement.classList.add('hidden');
+  currentScorePlayerZeroElement.textContent = 0;
+  currentScorePlayerOneElement.textContent = 0;
+
+  // Player states elements
+  playerZeroElement.classList.remove('player--winner');
+  playerOneElement.classList.remove('player--winner');
+
+  playerZeroElement.classList.add('player--active');
+  playerOneElement.classList.remove('player--active');
+};
+init();
 
 // Switch to next player function
 const switchPlayer = function () {
@@ -71,7 +86,7 @@ buttonHoldElement.addEventListener('click', function () {
     document.getElementById(`score--${activePlayer}`).textContent =
       scores[activePlayer];
     // 2. Check player's score is >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       // Finish the game
       playing = false;
       diceImageElement.classList.add('hidden');
@@ -89,25 +104,4 @@ buttonHoldElement.addEventListener('click', function () {
 });
 
 // Resetting the game
-buttonNewGameElement.addEventListener('click', function () {
-  // Reset the score
-  scores[0] = 0;
-  scores[1] = 0;
-  currentScore = 0;
-  activePlayer = 0;
-  playing = true;
-
-  // Reset the UI
-  diceImageElement.classList.add('hidden');
-  playerZeroScoreElement.textContent = 0;
-  playerOneScoreElement.textContent = 0;
-  currentScorePlayerZeroElement.textContent = 0;
-  currentScorePlayerOneElement.textContent = 0;
-
-  // Reset player states
-  playerZeroElement.classList.remove('player--winner');
-  playerOneElement.classList.remove('player--winner');
-
-  playerZeroElement.classList.add('player--active');
-  playerOneElement.classList.remove('player--active');
-});
+buttonNewGameElement.addEventListener('click', init);
