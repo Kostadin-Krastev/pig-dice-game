@@ -87,3 +87,15 @@ buttonHoldElement.addEventListener('click', function () {
     }
   }
 });
+
+// Resetting the game
+buttonNewGameElement.addEventListener('click', function () {
+  // Reset the score
+  scores[0] = 0;
+  scores[1] = 0;
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+  playerZeroScoreElement.textContent = 0;
+  playerOneScoreElement.textContent = 0;
+});
